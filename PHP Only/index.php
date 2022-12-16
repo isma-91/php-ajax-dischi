@@ -17,3 +17,42 @@ Consigli del giorno:
 - volendo, anche il file con i dati dei dischi potrebbe trovarsi nella root dell'esercizio ed essere in comune per entrambe le versioni. Ci sarà però bisogno di aggiungere un controllo per distinguere quando il file viene incluso tramite php o richiesto da una chiamata api
 */
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <?php include __DIR__ . '/includes/header.php'; ?>
+  
+  <main>
+    <?php include_once __DIR__ . '/db/database.php'; ?>
+    <div class="container">
+      <ul>
+      <?php foreach ($arr_discs as $disc) {?>
+        
+        <li class="card">
+          <div class="content ">
+            <img 
+              src="<?= $disc['image']; ?>" 
+              alt="<?= $disc['title']; ?>" 
+              class="img-disc"
+            >
+            <h3 class="song-name"><?= $disc['title']; ?></h3>
+            <div class="author"><?= $disc['author']; ?></div>
+            <div class="year"><?= $disc['year']; ?></div>
+          </div>
+        </li>
+        
+        <?php } ?>
+      </ul>
+    </div>
+  </main>
+  
+</body>
+</html>
