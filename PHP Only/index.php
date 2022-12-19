@@ -17,6 +17,7 @@ Consigli del giorno:
 - volendo, anche il file con i dati dei dischi potrebbe trovarsi nella root dell'esercizio ed essere in comune per entrambe le versioni. Ci sarà però bisogno di aggiungere un controllo per distinguere quando il file viene incluso tramite php o richiesto da una chiamata api
 */
 ?>
+<?php include __DIR__ . '/settings.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
