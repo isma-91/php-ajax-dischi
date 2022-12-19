@@ -12,31 +12,44 @@
 
 </head>
 <body>
-  <header>
-      <div class="logo">
-        <img src="assets/img/logo-small.svg" alt="logo">
-      </div>
-  </header>
+  <div id="app">
+    <header>
+        <div class="logo">
+          <img src="assets/img/logo-small.svg" alt="logo">
+        </div>
+        <div class="selection">
+          <select @change="getList" name="genre" v-model="genre">
+            <option value="all">All</option>
+            <option 
+              v-for="(genre,index) in genres"
+              :key="index"
+              :value="genre">
+            {{ genre }}
+            </option>
+          </select>
+        </div>
+    </header>
 
-  <main id="app">
-    <div class="container">
-      <ul>
-        <li v-for="disc in discs" :key="disc.id" class="card">
-          <div class="content ">
-            <img :src="disc.image" :alt="disc.title" class="img-disc">
-            <h3 class="song-name">
-              {{ disc.title }}
-            </h3>
-            <div class="author">
-              {{ disc.author }}
+    <main>
+      <div class="container">
+        <ul>
+          <li v-for="disc in discs" :key="disc.id" class="card">
+            <div class="content ">
+              <img :src="disc.image" :alt="disc.title" class="img-disc">
+              <h3 class="song-name">
+                {{ disc.title }}
+              </h3>
+              <div class="author">
+                {{ disc.author }}
+              </div>
+              <div class="year">
+                {{ disc.year }}
+              </div>
             </div>
-            <div class="year">
-              {{ disc.year }}
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </main>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </div>
 </body>
 </html>
